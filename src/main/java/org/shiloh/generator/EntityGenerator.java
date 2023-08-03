@@ -37,17 +37,16 @@ public class EntityGenerator {
     /**
      * 根据表信息生成实体类
      *
-     * @param packageName 包名
-     * @param entities    表信息集合
+     * @param entities 表信息集合
      * @throws RuntimeException 生成失败抛出的异常
      * @author shiloh
      * @date 2023/8/2 16:38
      */
-    public static void generate(String packageName, List<Entity> entities) {
+    public static void generate(List<Entity> entities) {
         final String packagePath = String.format(
                 "%s%s%s",
                 EntityGeneratorConfig.SOURCE_CODE_PATH,
-                packageName.replaceAll("\\.", SymbolConstants.SLASH),
+                EntityGeneratorConfig.ENTITY_PACKAGE_NAME.replaceAll("\\.", SymbolConstants.SLASH),
                 SymbolConstants.SLASH
         );
         try {
@@ -68,7 +67,7 @@ public class EntityGenerator {
                     // 创建数据模型
                     final Map<String, Object> dataMap = new HashMap<>(16);
                     // 插入模板变量与对应的值
-                    dataMap.put("package", packageName);
+                    dataMap.put("package", EntityGeneratorConfig.ENTITY_PACKAGE_NAME);
                     dataMap.put("entity", entity);
                     dataMap.put("dependencies", entity.getDependencies());
                     // 加载模板文件

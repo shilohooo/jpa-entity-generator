@@ -114,7 +114,6 @@ public class EntityGeneratorConfig {
 package org.shiloh.test;
 
 import org.junit.Test;
-import org.shiloh.config.EntityGeneratorConfig;
 import org.shiloh.generator.EntityGenerator;
 import org.shiloh.parser.PdmParser;
 
@@ -143,7 +142,7 @@ public class EntityGenerateTests {
         final URL url = EntityGenerateTests.class
                 .getClassLoader()
                 .getResource(PDM_FILE_NAME);
-        EntityGenerator.generate(EntityGeneratorConfig.ENTITY_PACKAGE_NAME, PdmParser.parse(url));
+        EntityGenerator.generate(PdmParser.parse(url));
     }
 }
 
