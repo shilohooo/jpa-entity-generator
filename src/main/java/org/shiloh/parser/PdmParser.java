@@ -73,6 +73,8 @@ public class PdmParser {
         final boolean tableNamePrefixIsNotBlank = StringUtils.isNotBlank(EntityGeneratorConfig.TABLE_NAME_PREFIX);
         tableElements.forEach(tableEle -> {
             final Entity entity = new Entity();
+            // 获取表 ID
+            entity.setTableId(tableEle.attributeValue(ID));
             // 获取表英文名称
             final String tableName = tableEle.elementText(CODE);
             entity.setTableName(

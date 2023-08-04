@@ -21,6 +21,11 @@ public class Entity {
     private String name;
 
     /**
+     * 表 ID
+     */
+    private String tableId;
+
+    /**
      * 表名称
      */
     private String tableName;
