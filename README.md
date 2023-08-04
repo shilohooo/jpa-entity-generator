@@ -37,7 +37,49 @@
 
 ## 类图
 
-![类图](src/main/resources/static/images/diagram.png)
+```mermaid
+classDiagram
+class Entity
+Entity : -Sting name
+Entity : -Sting tableName
+Entity : -Sting comment
+Entity : -Sting creator
+Entity : -Sting createDate
+Entity : -Sting primaryKeyColId
+Entity : -List<Field> fields
+Entity : -List<Sting> denpendencies
+
+class Field
+Field : -String entityName
+Field : -String colId
+Field : -String colName
+Field : -String name
+Field : -String type
+Field : -String typeQualifiedName
+Field : -String comment
+Field : -String colType
+Field : -String colLength
+Field : -Boolean mandatory
+Field : -Boolean isPrimaryKey
+
+Entity "1" --> "*" Field
+
+class Reference
+Reference : -String id
+Reference : -String name
+Reference : -String cardinality
+Reference : -String parentTableId
+Reference : -String childTableId
+
+class ReferenceJoin
+ReferenceJoin : -String id
+ReferenceJoin : -String colId1
+ReferenceJoin : -String colId2
+
+Reference "1" --> "*" ReferenceJoin
+```
+
+
 
 # PDM文档解析映射
 
