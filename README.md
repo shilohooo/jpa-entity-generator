@@ -263,4 +263,4 @@ public class AttendTime implements Serializable {
 
 # 许可证
 
-[MIT](https://opensource.org/license/mit/)
+[MIT](./LICENSE)
